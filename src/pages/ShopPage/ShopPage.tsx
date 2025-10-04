@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaCrown, FaTicketAlt, FaGem } from 'react-icons/fa';
 import { PREMIUM_BENEFITS, SHOP_ITEMS } from '@/constants/server';
@@ -7,7 +6,6 @@ import { DONATIONS, calculateDiscount } from '@/constants/donations';
 import './ShopPage.scss';
 
 const ShopPage = () => {
-  const navigate = useNavigate();
   const [isPremium, setIsPremium] = useState(false);
 
   const handlePurchase = (itemName: string, itemPrice: number) => {
