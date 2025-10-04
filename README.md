@@ -71,25 +71,13 @@ src/
 
 Проект автоматично деплоїться на Vercel при push в main гілку.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/craftshade-website)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ExyFareinheits/craftshade_vanilla)
 
 ## 📞 Контакти
 
 - Discord: [discord.gg/YG6t2gZM26](https://discord.gg/YG6t2gZM26)
 - TikTok: [@craftshade](https://www.tiktok.com/@craftshade)
 - Email: craftshade@gmail.com
-
-## 📄 Ліцензія
-
-© 2024 Craftshade. Всі права захищені.
-3. Деплой відбудеться автоматично
-
-Або через CLI:
-
-```bash
-npm i -g vercel
-vercel
-```
 
 ## 📦 Додавання нових сторінок
 
@@ -99,6 +87,18 @@ vercel
 
 ## 🎨 Зміна стилів
 
+Глобальні змінні (кольори, відступи) знаходяться в:
+`src/styles/variables.scss`
+
+## ⚠️ Примітки
+
+- Всі дані статичні та налаштовуються через константи
+- Оплата здійснюється через Monobank з підтвердженням в Discord
+- Кожне замовлення отримує унікальний номер
+
+## 📄 Ліцензія
+
+© 2024 Craftshade. Всі права захищені.
 Глобальні змінні (кольори, відступи) знаходяться в:
 `src/styles/variables.scss`
 
