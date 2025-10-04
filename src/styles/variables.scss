@@ -1,0 +1,41 @@
+// Кольори
+$primary-color: #4CAF50;
+$secondary-color: #2196F3;
+$accent-color: #FFC107;
+$dark-bg: #1a1a1a;
+$darker-bg: #0f0f0f;
+$text-primary: #ffffff;
+$text-secondary: #b0b0b0;
+$border-color: #333;
+
+// Градієнти
+$gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+$gradient-minecraft: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+
+// Розміри
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1024px;
+$desktop-breakpoint: 1440px;
+
+// Відступи
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// Border radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 16px;
+
+// Тіні
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
+
+// Анімації
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;

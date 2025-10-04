@@ -1,0 +1,418 @@
+@import '../../styles/variables.scss';
+
+.shop-page {
+  padding: $spacing-xl $spacing-md;
+  min-height: 100vh;
+  background: $darker-bg;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: $spacing-sm;
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 3rem;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+    color: $text-secondary;
+    font-size: 1.1rem;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  @media (min-width: $mobile-breakpoint) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.product-card {
+  background: $dark-bg;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  position: relative;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+  }
+
+  &--premium {
+    border-color: $accent-color;
+    background: linear-gradient(135deg, $dark-bg 0%, rgba($accent-color, 0.05) 100%);
+  }
+
+  &__badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: $accent-color;
+    color: $darker-bg;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $border-radius-md;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    color: $text-primary;
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+  }
+
+  &__pricing {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: $accent-color;
+    text-align: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__benefits {
+    margin-bottom: $spacing-lg;
+
+    h3 {
+      color: $primary-color;
+      margin-bottom: $spacing-md;
+      font-size: 1.1rem;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+
+      li {
+        display: flex;
+        gap: $spacing-sm;
+        color: $text-secondary;
+        line-height: 1.6;
+
+        .check-icon {
+          color: $primary-color;
+          font-weight: bold;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    padding: $spacing-md;
+    background: $gradient-minecraft;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: $border-radius-md;
+    transition: transform $transition-fast, box-shadow $transition-fast;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: $shadow-md;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    &--premium {
+      background: linear-gradient(135deg, $accent-color 0%, darken($accent-color, 10%) 100%);
+    }
+  }
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md;
+  background: rgba($primary-color, 0.05);
+  border-radius: $border-radius-md;
+
+  &__label {
+    color: $text-secondary;
+  }
+
+  &__value {
+    font-weight: bold;
+    color: $accent-color;
+    font-size: 1.2rem;
+
+    &--free {
+      color: $primary-color;
+    }
+  }
+}
+
+.info-section {
+  margin-top: $spacing-xl;
+}
+
+.info-card {
+  background: rgba($secondary-color, 0.1);
+  border: 1px solid rgba($secondary-color, 0.3);
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+
+  &__title {
+    color: $secondary-color;
+    font-size: 1.3rem;
+    margin-bottom: $spacing-md;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    li {
+      color: $text-secondary;
+      padding-left: $spacing-md;
+      position: relative;
+      line-height: 1.6;
+
+      &::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+.premium-toggle {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+}
+
+.toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-lg;
+  background: rgba($primary-color, 0.1);
+  border-radius: $border-radius-lg;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    background: rgba($primary-color, 0.2);
+  }
+
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  span {
+    color: $text-primary;
+    font-weight: 500;
+  }
+}
+
+.donations-section {
+  margin-top: $spacing-xl * 2;
+}
+
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: $spacing-xl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  color: $primary-color;
+
+  svg {
+    font-size: 2.5rem;
+  }
+}
+
+.donations-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @media (min-width: $mobile-breakpoint) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $tablet-breakpoint) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.donation-card {
+  background: $dark-bg;
+  border: 2px solid;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  transition: all $transition-normal;
+
+  &__header {
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+    text-align: center;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__role {
+    font-size: 0.9rem;
+    color: $text-secondary;
+  }
+
+  &__price {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    margin: $spacing-md 0;
+    position: relative;
+
+    .old-price {
+      font-size: 1.2rem;
+      color: $text-secondary;
+      text-decoration: line-through;
+    }
+
+    .current-price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: $accent-color;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: $primary-color;
+      color: white;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $border-radius-md;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+  }
+
+  &__items {
+    h4 {
+      color: $primary-color;
+      margin-bottom: $spacing-sm;
+      font-size: 0.95rem;
+    }
+
+    .kit-badge {
+      display: inline-block;
+      background: rgba($primary-color, 0.2);
+      color: $primary-color;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $border-radius-sm;
+      font-size: 0.85rem;
+      font-family: 'Courier New', monospace;
+    }
+  }
+
+  &__features {
+    flex: 1;
+
+    h4 {
+      color: $secondary-color;
+      margin-bottom: $spacing-sm;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xs;
+
+      li {
+        color: $text-secondary;
+        font-size: 0.9rem;
+        padding-left: $spacing-md;
+        position: relative;
+        line-height: 1.5;
+
+        &::before {
+          content: '•';
+          position: absolute;
+          left: 0;
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    padding: $spacing-md;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: $border-radius-md;
+    transition: all $transition-fast;
+    border: none;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+      filter: brightness(1.1);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

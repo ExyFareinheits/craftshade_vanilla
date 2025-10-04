@@ -1,0 +1,130 @@
+@import '../../styles/variables.scss';
+
+.help-page {
+  padding: $spacing-xl $spacing-md;
+  min-height: 100vh;
+  background: $darker-bg;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: $spacing-md;
+    background: $gradient-minecraft;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 3rem;
+    }
+  }
+
+  &__intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: $text-secondary;
+    margin-bottom: $spacing-xl;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    strong {
+      color: $accent-color;
+      font-weight: bold;
+    }
+  }
+}
+
+.mechanics {
+  display: grid;
+  gap: $spacing-lg;
+}
+
+.mechanic-card {
+  background: $dark-bg;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+    border-color: $primary-color;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+  }
+
+  &__number {
+    background: $gradient-primary;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    color: $primary-color;
+  }
+
+  &__description {
+    color: $text-secondary;
+    margin-bottom: $spacing-md;
+    font-size: 1.05rem;
+  }
+
+  &__usage {
+    background: rgba($primary-color, 0.1);
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+    border-left: 4px solid $primary-color;
+    margin-bottom: $spacing-md;
+
+    h3 {
+      color: $primary-color;
+      margin-bottom: $spacing-sm;
+      font-size: 1.1rem;
+    }
+
+    p {
+      color: $text-primary;
+      line-height: 1.6;
+    }
+  }
+
+  &__tips {
+    background: rgba($accent-color, 0.1);
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+    display: flex;
+    gap: $spacing-md;
+    align-items: flex-start;
+
+    .tips-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    p {
+      color: $text-secondary;
+      line-height: 1.6;
+    }
+  }
+}

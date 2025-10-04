@@ -1,0 +1,107 @@
+@import '../../styles/variables.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba($dark-bg, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $border-color;
+  z-index: 1000;
+  padding: $spacing-sm;
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: $gradient-minecraft;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: transform $transition-fast;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    z-index: 1001;
+    color: $text-primary;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    @media (min-width: $mobile-breakpoint) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: $dark-bg;
+    display: flex;
+    flex-direction: column;
+    padding: 80px $spacing-md $spacing-md;
+    gap: $spacing-md;
+    transition: right $transition-normal;
+    box-shadow: $shadow-lg;
+
+    &.active {
+      right: 0;
+    }
+
+    @media (min-width: $mobile-breakpoint) {
+      position: static;
+      flex-direction: row;
+      width: auto;
+      height: auto;
+      background: transparent;
+      padding: 0;
+      gap: $spacing-lg;
+      box-shadow: none;
+    }
+  }
+
+  &__link {
+    font-size: 1.1rem;
+    color: $text-secondary;
+    transition: color $transition-fast;
+    padding: $spacing-sm;
+    border-radius: $border-radius-sm;
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    &.active {
+      color: $primary-color;
+      font-weight: 600;
+    }
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 1rem;
+      padding: 0;
+    }
+  }
+}
+

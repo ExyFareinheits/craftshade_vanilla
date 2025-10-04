@@ -1,0 +1,272 @@
+@import '../../styles/variables.scss';
+
+.staff-page {
+  padding: $spacing-xl $spacing-md;
+  min-height: 100vh;
+  background: $darker-bg;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: $spacing-sm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-md;
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    svg {
+      font-size: 2.5rem;
+    }
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 3rem;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+    color: $text-secondary;
+    font-size: 1.1rem;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl * 2;
+
+  @media (min-width: $mobile-breakpoint) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.schedule-card {
+  background: $dark-bg;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  transition: all $transition-normal;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    border-color: $primary-color;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-md;
+    border-bottom: 2px solid $border-color;
+  }
+
+  &__role {
+    font-size: 1.4rem;
+    color: $primary-color;
+    font-weight: bold;
+  }
+
+  &__icon {
+    font-size: 2rem;
+    color: $accent-color;
+  }
+
+  &__times {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__members {
+    background: rgba($primary-color, 0.1);
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+    margin-top: $spacing-lg;
+
+    h4 {
+      color: $primary-color;
+      margin-bottom: $spacing-sm;
+      font-size: 1rem;
+    }
+  }
+}
+
+.time-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-sm $spacing-md;
+  background: rgba($secondary-color, 0.1);
+  border-radius: $border-radius-md;
+  border-left: 3px solid $secondary-color;
+
+  &--break {
+    background: rgba($accent-color, 0.1);
+    border-left-color: $accent-color;
+
+    .time-label {
+      color: $accent-color;
+    }
+  }
+
+  .time-label {
+    color: $text-secondary;
+    font-weight: 500;
+  }
+
+  .time-value {
+    color: $text-primary;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+  }
+}
+
+.members-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.member-badge {
+  display: inline-block;
+  background: $primary-color;
+  color: white;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $border-radius-md;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.contact-section {
+  margin-top: $spacing-xl * 2;
+
+  &__title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    color: $primary-color;
+  }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @media (min-width: $mobile-breakpoint) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.contact-card {
+  background: $dark-bg;
+  border: 2px solid;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+  text-decoration: none;
+  transition: all $transition-normal;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+  }
+
+  &__icon {
+    font-size: 3rem;
+  }
+
+  &__label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-secondary;
+  }
+
+  &__value {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  &--discord {
+    border-color: #5865F2;
+
+    .contact-card__icon {
+      color: #5865F2;
+    }
+
+    .contact-card__value {
+      color: #5865F2;
+    }
+
+    &:hover {
+      background: rgba(#5865F2, 0.1);
+    }
+  }
+
+  &--tiktok {
+    border-color: #000000;
+
+    .contact-card__icon {
+      color: #00f2ea;
+    }
+
+    .contact-card__value {
+      color: #00f2ea;
+    }
+
+    &:hover {
+      background: rgba(#00f2ea, 0.1);
+    }
+  }
+
+  &--email {
+    border-color: #EA4335;
+
+    .contact-card__icon {
+      color: #EA4335;
+    }
+
+    .contact-card__value {
+      color: #EA4335;
+    }
+
+    &:hover {
+      background: rgba(#EA4335, 0.1);
+    }
+  }
+}
+
+.info-banner {
+  background: linear-gradient(135deg, rgba($primary-color, 0.2), rgba($secondary-color, 0.2));
+  border: 1px solid rgba($primary-color, 0.5);
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  margin-top: $spacing-xl;
+
+  p {
+    color: $text-primary;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1.05rem;
+
+    strong {
+      color: $primary-color;
+    }
+  }
+}

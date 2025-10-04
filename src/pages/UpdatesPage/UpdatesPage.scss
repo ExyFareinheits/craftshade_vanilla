@@ -1,0 +1,161 @@
+@import '../../styles/variables.scss';
+
+.updates-page {
+  padding: $spacing-xl $spacing-md;
+  min-height: 100vh;
+  background: $darker-bg;
+
+  &__container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: $spacing-sm;
+    background: $gradient-secondary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 3rem;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+    color: $text-secondary;
+    font-size: 1.1rem;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: $border-color;
+
+    @media (min-width: $mobile-breakpoint) {
+      left: 30px;
+    }
+  }
+}
+
+.update-card {
+  background: $dark-bg;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  padding-left: calc($spacing-lg + 40px);
+  position: relative;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 13px;
+    top: $spacing-lg;
+    width: 16px;
+    height: 16px;
+    background: $primary-color;
+    border-radius: 50%;
+    border: 3px solid $darker-bg;
+    z-index: 1;
+
+    @media (min-width: $mobile-breakpoint) {
+      left: 23px;
+    }
+  }
+
+  &:hover {
+    transform: translateX(10px);
+    box-shadow: $shadow-lg;
+    border-color: $primary-color;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-md;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+  }
+
+  &__meta {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+  }
+
+  &__badge {
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &--blue {
+      background: rgba($secondary-color, 0.2);
+      color: $secondary-color;
+    }
+
+    &--red {
+      background: rgba(#f44336, 0.2);
+      color: #f44336;
+    }
+
+    &--green {
+      background: rgba($primary-color, 0.2);
+      color: $primary-color;
+    }
+  }
+
+  &__version {
+    font-family: 'Courier New', monospace;
+    color: $accent-color;
+    font-weight: bold;
+  }
+
+  &__date {
+    color: $text-secondary;
+    font-size: 0.9rem;
+  }
+
+  &__title {
+    font-size: 1.4rem;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  &__changes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    li {
+      display: flex;
+      gap: $spacing-sm;
+      color: $text-secondary;
+      line-height: 1.6;
+
+      .bullet {
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+  }
+}

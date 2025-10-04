@@ -1,0 +1,183 @@
+@import '../../styles/variables.scss';
+
+.main-page {
+  min-height: 100vh;
+}
+
+.hero {
+  padding: $spacing-xl $spacing-md;
+  background: $gradient-minecraft;
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: $spacing-md;
+    
+    span {
+      display: block;
+      font-size: 2.5rem;
+      margin-top: $spacing-sm;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 2.5rem;
+
+      span {
+        font-size: 3.5rem;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    margin-bottom: $spacing-xl;
+    opacity: 0.95;
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__server-info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    align-items: center;
+
+    @media (min-width: $mobile-breakpoint) {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+}
+
+.server-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: $spacing-md $spacing-lg;
+  border-radius: $border-radius-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  min-width: 250px;
+
+  &__label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  &__value {
+    font-family: 'Courier New', monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+}
+
+.features {
+  padding: $spacing-xl $spacing-md;
+  background: $darker-bg;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: $spacing-xl;
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+
+    @media (min-width: $mobile-breakpoint) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $tablet-breakpoint) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.feature-card {
+  background: $dark-bg;
+  padding: $spacing-lg;
+  border-radius: $border-radius-lg;
+  text-align: center;
+  border: 1px solid $border-color;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+    border-color: $primary-color;
+  }
+
+  &__icon {
+    font-size: 3rem;
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-size: 1.3rem;
+    margin-bottom: $spacing-sm;
+    color: $primary-color;
+  }
+
+  &__text {
+    color: $text-secondary;
+    line-height: 1.6;
+  }
+}
+
+.cta {
+  padding: $spacing-xl $spacing-md;
+  background: $dark-bg;
+  text-align: center;
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: $spacing-md;
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__ip {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $accent-color;
+    background: rgba($accent-color, 0.1);
+    padding: $spacing-md $spacing-lg;
+    border-radius: $border-radius-md;
+    display: inline-block;
+    border: 2px solid $accent-color;
+  }
+}

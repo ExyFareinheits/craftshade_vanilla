@@ -1,0 +1,437 @@
+@import '../../styles/variables.scss';
+
+.payment-page {
+  padding: $spacing-xl $spacing-md;
+  min-height: 100vh;
+  background: $darker-bg;
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-md;
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    svg {
+      font-size: 2.5rem;
+    }
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 3rem;
+    }
+  }
+}
+
+.order-summary {
+  background: $dark-bg;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  h2 {
+    color: $primary-color;
+    margin-bottom: $spacing-md;
+    font-size: 1.5rem;
+  }
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md;
+  background: rgba($secondary-color, 0.1);
+  border-radius: $border-radius-md;
+  margin-bottom: $spacing-md;
+
+  &__name {
+    font-size: 1.1rem;
+    color: $text-primary;
+    font-weight: 500;
+  }
+
+  &__price {
+    font-size: 1.2rem;
+    color: $accent-color;
+    font-weight: bold;
+  }
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md;
+  border-top: 2px solid $border-color;
+  font-size: 1.2rem;
+
+  .total-price {
+    font-size: 1.8rem;
+    color: $accent-color;
+    font-weight: bold;
+  }
+}
+
+.payment-card {
+  background: $dark-bg;
+  border: 2px solid $accent-color;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  margin-bottom: $spacing-xl;
+
+  &__title {
+    color: $accent-color;
+    margin-bottom: $spacing-lg;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+.card-number {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.card-label {
+  color: $text-secondary;
+  font-weight: 500;
+}
+
+.card-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  background: rgba($accent-color, 0.1);
+  border: 2px solid $accent-color;
+  border-radius: $border-radius-md;
+  font-family: 'Courier New', monospace;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: $accent-color;
+}
+
+.copy-button {
+  background: $accent-color;
+  color: white;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-sm;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  transition: all $transition-fast;
+  position: relative;
+
+  &:hover {
+    background: darken($accent-color, 10%);
+    transform: scale(1.05);
+  }
+
+  svg {
+    font-size: 1.2rem;
+  }
+
+  &--small {
+    padding: $spacing-xs $spacing-sm;
+
+    svg {
+      font-size: 1rem;
+    }
+  }
+}
+
+.copied-tooltip {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  background: $primary-color;
+  color: white;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.instructions {
+  background: $dark-bg;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  margin-bottom: $spacing-xl;
+
+  &__title {
+    color: $primary-color;
+    margin-bottom: $spacing-md;
+    font-size: 1.5rem;
+  }
+
+  &__intro {
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+    line-height: 1.6;
+  }
+}
+
+.steps-list {
+  list-style: none;
+  counter-reset: step-counter;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: rgba($secondary-color, 0.1);
+  border-radius: $border-radius-md;
+  border-left: 3px solid $secondary-color;
+}
+
+.step-number {
+  counter-increment: step-counter;
+  background: $secondary-color;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+
+  &::before {
+    content: counter(step-counter);
+  }
+}
+
+.step-text {
+  color: $text-primary;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.important-note {
+  background: rgba(#EA4335, 0.1);
+  border: 2px solid #EA4335;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+
+  h3 {
+    color: #EA4335;
+    margin-bottom: $spacing-md;
+    font-size: 1.2rem;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    li {
+      color: $text-secondary;
+      padding-left: $spacing-md;
+      position: relative;
+      line-height: 1.6;
+
+      &::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #EA4335;
+        font-weight: bold;
+      }
+
+      strong {
+        color: $text-primary;
+      }
+    }
+  }
+}
+
+.confirmation {
+  background: rgba($primary-color, 0.1);
+  border: 1px solid $primary-color;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  cursor: pointer;
+  color: $text-primary;
+  font-size: 1.05rem;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .check-icon {
+    font-size: 1.8rem;
+    color: $border-color;
+    transition: all $transition-normal;
+
+    &.checked {
+      color: $primary-color;
+    }
+  }
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  @media (min-width: $mobile-breakpoint) {
+    flex-direction: row;
+  }
+}
+
+.payment-button {
+  flex: 1;
+  padding: $spacing-lg;
+  background: linear-gradient(135deg, #5865F2, #4752C4);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: $border-radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  transition: all $transition-normal;
+
+  svg {
+    font-size: 1.5rem;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+    filter: brightness(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.back-button {
+  flex: 1;
+  padding: $spacing-lg;
+  background: transparent;
+  color: $text-secondary;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 2px solid $border-color;
+  border-radius: $border-radius-md;
+  transition: all $transition-normal;
+
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+}
+
+.error-message {
+  text-align: center;
+  padding: $spacing-xl;
+  background: $dark-bg;
+  border-radius: $border-radius-lg;
+  margin-top: $spacing-xl;
+
+  h2 {
+    color: #EA4335;
+    margin-bottom: $spacing-md;
+    font-size: 2rem;
+  }
+
+  p {
+    color: $text-secondary;
+    margin-bottom: $spacing-md;
+    font-size: 1.1rem;
+  }
+
+  .error-hint {
+    color: $text-primary;
+    font-size: 1rem;
+    margin-bottom: $spacing-lg;
+  }
+
+  .back-button {
+    display: inline-block;
+    padding: $spacing-md $spacing-xl;
+  }
+}
+
+.order-id-card {
+  background: linear-gradient(135deg, rgba($primary-color, 0.2), rgba($secondary-color, 0.2));
+  border: 2px solid $primary-color;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-xl;
+  text-align: center;
+
+  h3 {
+    color: $primary-color;
+    font-size: 1.2rem;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.order-id {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+  flex-wrap: wrap;
+
+  &__value {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $accent-color;
+    padding: $spacing-sm $spacing-lg;
+    background: rgba($accent-color, 0.1);
+    border: 2px solid $accent-color;
+    border-radius: $border-radius-md;
+    letter-spacing: 2px;
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 1.1rem;
+      padding: $spacing-xs $spacing-md;
+      letter-spacing: 1px;
+    }
+  }
+
+  &__note {
+    color: $text-secondary;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-style: italic;
+  }
+}

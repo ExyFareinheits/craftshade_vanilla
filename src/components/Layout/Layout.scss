@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    flex: 1;
+    padding-top: 70px; // Висота header
+
+    @media (min-width: $mobile-breakpoint) {
+      padding-top: 80px;
+    }
+  }
+}

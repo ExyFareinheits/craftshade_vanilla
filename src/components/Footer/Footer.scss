@@ -1,0 +1,137 @@
+@import '../../styles/variables.scss';
+
+.footer {
+  background: $dark-bg;
+  border-top: 1px solid $border-color;
+  padding: $spacing-xl $spacing-md $spacing-md;
+  margin-top: $spacing-xl;
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+
+    @media (min-width: $mobile-breakpoint) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    color: $primary-color;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__text {
+    color: $text-secondary;
+    font-size: 0.9rem;
+  }
+
+  &__ip {
+    font-family: 'Courier New', monospace;
+    color: $accent-color;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: $spacing-xs;
+    background: rgba($accent-color, 0.1);
+    border-radius: $border-radius-sm;
+    display: inline-block;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__support {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    .support-badge {
+      display: inline-block;
+      background: rgba($secondary-color, 0.2);
+      color: $secondary-color;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $border-radius-sm;
+      font-size: 0.85rem;
+      font-weight: 600;
+      width: fit-content;
+    }
+  }
+
+  &__bottom {
+    text-align: center;
+    margin-top: $spacing-lg;
+    padding-top: $spacing-md;
+    border-top: 1px solid $border-color;
+    color: $text-secondary;
+    font-size: 0.85rem;
+  }
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  transition: all $transition-normal;
+  text-decoration: none;
+  font-weight: 500;
+  border: 1px solid transparent;
+
+  svg {
+    font-size: 1.3rem;
+  }
+
+  span {
+    font-size: 0.95rem;
+  }
+
+  &--discord {
+    color: #5865F2;
+    background: rgba(#5865F2, 0.1);
+    border-color: rgba(#5865F2, 0.3);
+
+    &:hover {
+      background: rgba(#5865F2, 0.2);
+      border-color: #5865F2;
+      transform: translateX(5px);
+    }
+  }
+
+  &--tiktok {
+    color: #00f2ea;
+    background: rgba(#00f2ea, 0.1);
+    border-color: rgba(#00f2ea, 0.3);
+
+    &:hover {
+      background: rgba(#00f2ea, 0.2);
+      border-color: #00f2ea;
+      transform: translateX(5px);
+    }
+  }
+
+  &--email {
+    color: #EA4335;
+    background: rgba(#EA4335, 0.1);
+    border-color: rgba(#EA4335, 0.3);
+
+    &:hover {
+      background: rgba(#EA4335, 0.2);
+      border-color: #EA4335;
+      transform: translateX(5px);
+    }
+  }
+}
