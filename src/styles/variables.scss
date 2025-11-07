@@ -1,17 +1,21 @@
-// Кольори
-$primary-color: #4CAF50;
-$secondary-color: #2196F3;
-$accent-color: #FFC107;
-$dark-bg: #1a1a1a;
-$darker-bg: #0f0f0f;
-$text-primary: #ffffff;
-$text-secondary: #b0b0b0;
-$border-color: #333;
+// Зимня кольорова палітра
+$primary-color: #4FC3F7;
+$secondary-color: #81D4FA;
+$accent-color: #FFB74D;
+$ice-blue: #B3E5FC;
+$snow-white: #ECEFF1;
+$dark-bg: #0D1B2A;
+$darker-bg: #020916;
+$text-primary: #E3F2FD;
+$text-secondary: #90CAF9;
+$border-color: #1E3A5F;
 
-// Градієнти
-$gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-$gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-$gradient-minecraft: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+// Зимні градієнти
+$gradient-primary: linear-gradient(135deg, #4FC3F7 0%, #0288D1 100%);
+$gradient-secondary: linear-gradient(135deg, #81D4FA 0%, #4FC3F7 100%);
+$gradient-minecraft: linear-gradient(135deg, #4FC3F7 0%, #0288D1 100%);
+$gradient-ice: linear-gradient(135deg, #E1F5FE 0%, #B3E5FC 50%, #81D4FA 100%);
+$gradient-winter: linear-gradient(180deg, #0D1B2A 0%, #1B3A5F 100%);
 
 // Розміри
 $mobile-breakpoint: 768px;

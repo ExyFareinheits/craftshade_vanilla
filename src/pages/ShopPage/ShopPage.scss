@@ -3,7 +3,9 @@
 .shop-page {
   padding: $spacing-xl $spacing-md;
   min-height: 100vh;
-  background: $darker-bg;
+  background: linear-gradient(180deg, 
+    rgba($darker-bg, 0.9) 0%, 
+    rgba($dark-bg, 0.95) 100%);
 
   &__container {
     max-width: 1200px;
@@ -14,10 +16,11 @@
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: $spacing-sm;
-    background: $gradient-primary;
+    background: $gradient-ice;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    filter: drop-shadow(0 0 15px rgba($ice-blue, 0.3));
 
     @media (min-width: $mobile-breakpoint) {
       font-size: 3rem;
@@ -44,21 +47,60 @@
 }
 
 .product-card {
-  background: $dark-bg;
-  border: 1px solid $border-color;
+  background: linear-gradient(135deg, 
+    rgba($dark-bg, 0.8) 0%, 
+    rgba($ice-blue, 0.05) 100%);
+  border: 2px solid rgba($ice-blue, 0.3);
   border-radius: $border-radius-lg;
   padding: $spacing-xl;
   position: relative;
-  transition: transform $transition-normal, box-shadow $transition-normal;
+  transition: all $transition-normal;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  
+  // GPU optimization
+  will-change: transform;
+  transform: translateZ(0);
+  
+  // Світловий ефект
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, 
+      rgba($ice-blue, 0.1) 0%, 
+      transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: $shadow-lg;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 20px 40px rgba($ice-blue, 0.3),
+      inset 0 0 20px rgba($ice-blue, 0.1);
+    border-color: $ice-blue;
+    
+    &::before {
+      opacity: 1;
+    }
   }
 
   &--premium {
-    border-color: $accent-color;
-    background: linear-gradient(135deg, $dark-bg 0%, rgba($accent-color, 0.05) 100%);
+    border-color: rgba($accent-color, 0.5);
+    background: linear-gradient(135deg, 
+      rgba($dark-bg, 0.8) 0%, 
+      rgba($accent-color, 0.1) 100%);
+      
+    &:hover {
+      border-color: $accent-color;
+      box-shadow: 
+        0 20px 40px rgba($accent-color, 0.3),
+        inset 0 0 20px rgba($accent-color, 0.1);
+    }
   }
 
   &__badge {

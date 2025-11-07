@@ -1,0 +1,128 @@
+@import '../../styles/variables.scss';
+
+.snow-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: rgba(white, 0.9);
+  font-size: 1.2rem;
+  user-select: none;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  animation: fall linear infinite;
+  text-shadow: 0 0 8px rgba(white, 0.8), 0 0 15px rgba($ice-blue, 0.4);
+  
+  // Різні варіації сніжинок
+  &:nth-child(3n) {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    animation-name: fall-slow;
+  }
+
+  &:nth-child(5n) {
+    font-size: 1.5rem;
+    opacity: 0.85;
+    animation-name: fall-swing-left;
+  }
+
+  &:nth-child(7n) {
+    font-size: 0.6rem;
+    opacity: 0.6;
+    animation-name: fall-swing-right;
+  }
+  
+  &:nth-child(even) {
+    animation-name: fall-swing-right;
+  }
+  
+  &:nth-child(odd) {
+    animation-name: fall-swing-left;
+  }
+}
+
+// Базова анімація падіння
+@keyframes fall {
+  to {
+    transform: translateY(100vh) translateZ(0);
+    opacity: 0;
+  }
+}
+
+// Повільне падіння
+@keyframes fall-slow {
+  to {
+    transform: translateY(100vh) translateX(-30px) translateZ(0);
+    opacity: 0;
+  }
+}
+
+// Хитання вліво з обертанням
+@keyframes fall-swing-left {
+  0% {
+    transform: translateX(0) translateY(0) translateZ(0) rotate(0deg);
+    opacity: 0.9;
+  }
+  25% {
+    transform: translateX(-25px) translateY(25vh) translateZ(0) rotate(90deg);
+  }
+  50% {
+    transform: translateX(-10px) translateY(50vh) translateZ(0) rotate(180deg);
+  }
+  75% {
+    transform: translateX(-30px) translateY(75vh) translateZ(0) rotate(270deg);
+  }
+  100% {
+    transform: translateX(0) translateY(100vh) translateZ(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+// Хитання вправо з обертанням
+@keyframes fall-swing-right {
+  0% {
+    transform: translateX(0) translateY(0) translateZ(0) rotate(0deg);
+    opacity: 0.9;
+  }
+  25% {
+    transform: translateX(25px) translateY(25vh) translateZ(0) rotate(-90deg);
+  }
+  50% {
+    transform: translateX(10px) translateY(50vh) translateZ(0) rotate(-180deg);
+  }
+  75% {
+    transform: translateX(30px) translateY(75vh) translateZ(0) rotate(-270deg);
+  }
+  100% {
+    transform: translateX(0) translateY(100vh) translateZ(0) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+// На мобільних пристроях показуємо менше сніжинок та спрощуємо анімації
+@media (max-width: $mobile-breakpoint) {
+  .snowflake {
+    &:nth-child(n+15) {
+      display: none;
+    }
+    
+    // Спрощені анімації для мобільних
+    text-shadow: 0 0 5px rgba(white, 0.6);
+    
+    &:nth-child(3n),
+    &:nth-child(5n),
+    &:nth-child(7n) {
+      animation-name: fall;
+    }
+  }
+}

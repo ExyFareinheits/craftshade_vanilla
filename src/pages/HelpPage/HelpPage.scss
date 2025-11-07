@@ -3,21 +3,27 @@
 .help-page {
   padding: $spacing-xl $spacing-md;
   min-height: 100vh;
-  background: $darker-bg;
+  background: linear-gradient(180deg, 
+    rgba($darker-bg, 0.9) 0%, 
+    rgba($dark-bg, 0.95) 100%);
+  position: relative;
 
   &__container {
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
   }
 
   &__title {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: $spacing-md;
-    background: $gradient-minecraft;
+    background: $gradient-ice;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 0 20px rgba($ice-blue, 0.3);
 
     @media (min-width: $mobile-breakpoint) {
       font-size: 3rem;
@@ -36,6 +42,7 @@
     strong {
       color: $accent-color;
       font-weight: bold;
+      text-shadow: 0 0 10px rgba($accent-color, 0.5);
     }
   }
 }
@@ -46,16 +53,46 @@
 }
 
 .mechanic-card {
-  background: $dark-bg;
-  border: 1px solid $border-color;
+  background: linear-gradient(135deg, 
+    rgba($dark-bg, 0.8) 0%, 
+    rgba($ice-blue, 0.05) 100%);
+  border: 2px solid rgba($ice-blue, 0.3);
   border-radius: $border-radius-lg;
   padding: $spacing-lg;
-  transition: transform $transition-normal, box-shadow $transition-normal;
+  transition: all $transition-normal;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  
+  // GPU optimization
+  will-change: transform;
+  transform: translateZ(0);
+  
+  // Світловий ефект
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba($ice-blue, 0.2), 
+      transparent);
+    transition: left 0.6s;
+  }
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: $shadow-lg;
-    border-color: $primary-color;
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 
+      0 15px 30px rgba($ice-blue, 0.2),
+      inset 0 0 15px rgba($ice-blue, 0.1);
+    border-color: $ice-blue;
+    
+    &::before {
+      left: 100%;
+    }
   }
 
   &__header {
@@ -66,7 +103,7 @@
   }
 
   &__number {
-    background: $gradient-primary;
+    background: $gradient-ice;
     color: white;
     width: 40px;
     height: 40px;
@@ -77,11 +114,14 @@
     font-weight: bold;
     font-size: 1.2rem;
     flex-shrink: 0;
+    box-shadow: 0 0 15px rgba($ice-blue, 0.5);
+    border: 2px solid rgba($ice-blue, 0.3);
   }
 
   &__title {
     font-size: 1.5rem;
-    color: $primary-color;
+    color: $ice-blue;
+    text-shadow: 0 0 10px rgba($ice-blue, 0.3);
   }
 
   &__description {

@@ -4,13 +4,36 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
 
   &__content {
     flex: 1;
     padding-top: 70px; // Висота header
+    position: relative;
+    z-index: 1;
+    
+    // Додаємо м'який градієнт зверху для плавного переходу після header
+    &::before {
+      content: '';
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(180deg,
+        rgba($darker-bg, 0.3) 0%,
+        transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
     @media (min-width: $mobile-breakpoint) {
       padding-top: 80px;
+      
+      &::before {
+        top: 80px;
+      }
     }
   }
 }
