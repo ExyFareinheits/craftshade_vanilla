@@ -185,7 +185,7 @@ const UpdatesPage = () => {
           initial="hidden"
           animate="visible"
         >
-          {UPDATES.map((update, index) => (
+          {UPDATES.map((update) => (
             <motion.div
               key={update.id}
               className="update-card"
