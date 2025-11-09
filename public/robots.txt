@@ -1,0 +1,21 @@
+# robots.txt для Craftshade
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://craftshade.net/sitemap.xml
+
+# Заборонити непотрібні роути
+Disallow: /api/
+Disallow: /auth/callback
+
+# Правила для основних пошукових систем
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
