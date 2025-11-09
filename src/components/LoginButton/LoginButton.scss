@@ -1,0 +1,42 @@
+@import '../../styles/variables.scss';
+
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-lg;
+  background: linear-gradient(135deg, #5865F2, #7289DA);
+  border: 2px solid rgba(#5865F2, 0.5);
+  border-radius: $border-radius-md;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all $transition-normal;
+  box-shadow: 0 4px 15px rgba(#5865F2, 0.3);
+  width: 100%;
+  min-height: 48px;
+  
+  &__icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(#5865F2, 0.5);
+    background: linear-gradient(135deg, #4752C4, #5865F2);
+    border-color: #5865F2;
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  @media (min-width: $mobile-breakpoint) {
+    width: auto;
+    padding: $spacing-sm $spacing-lg;
+    min-height: auto;
+  }
+}

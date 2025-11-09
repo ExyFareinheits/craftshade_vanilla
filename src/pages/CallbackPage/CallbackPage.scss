@@ -1,0 +1,71 @@
+@import '../../styles/variables.scss';
+
+.callback-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg,
+    rgba($darker-bg, 0.95) 0%,
+    rgba($dark-bg, 0.98) 100%);
+
+  &__loading,
+  &__error {
+    text-align: center;
+    padding: $spacing-xl * 2;
+    background: linear-gradient(135deg,
+      rgba($dark-bg, 0.9),
+      rgba($ice-blue, 0.05));
+    border: 2px solid rgba($ice-blue, 0.3);
+    border-radius: $border-radius-lg;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 50px rgba($ice-blue, 0.2);
+    max-width: 500px;
+
+    h2 {
+      font-size: 2rem;
+      background: $gradient-ice;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: $spacing-md;
+    }
+
+    p {
+      color: $text-secondary;
+      font-size: 1.1rem;
+      margin-bottom: $spacing-lg;
+    }
+
+    button {
+      padding: $spacing-md $spacing-xl;
+      background: linear-gradient(135deg, $ice-blue, lighten($ice-blue, 10%));
+      border: none;
+      border-radius: $border-radius-md;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all $transition-normal;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 30px rgba($ice-blue, 0.6);
+      }
+    }
+  }
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba($ice-blue, 0.2);
+  border-top-color: $ice-blue;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto $spacing-lg;
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+}

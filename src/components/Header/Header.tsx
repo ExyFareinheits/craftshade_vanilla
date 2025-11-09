@@ -2,11 +2,15 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { BsSnow } from 'react-icons/bs';
+import { useAuth } from '../../contexts/AuthContext';
+import LoginButton from '../LoginButton/LoginButton';
+import ProfileDropdown from '../ProfileDropdown/ProfileDropdown';
 import './Header.scss';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { user, loading } = useAuth();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
@@ -37,6 +41,10 @@ const Header = () => {
         </button>
 
         <nav className={`header__nav ${isMenuOpen ? 'active' : ''}`}>
+          <div className="header__auth">
+            {!loading && (user ? <ProfileDropdown /> : <LoginButton />)}
+          </div>
+          
           <NavLink to="/" className="header__link" onClick={closeMenu}>
             <span className="link-text">Головна</span>
           </NavLink>

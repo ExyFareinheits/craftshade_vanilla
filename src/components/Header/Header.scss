@@ -278,5 +278,27 @@
       }
     }
   }
+  
+  &__auth {
+    padding-bottom: $spacing-lg;
+    margin-bottom: $spacing-lg;
+    border-bottom: 2px solid rgba($ice-blue, 0.2);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    order: -1; // Перемістити вгору на мобільних
+    
+    @media (min-width: $mobile-breakpoint) {
+      order: 999; // Перемістити в кінець на десктопі
+      margin-bottom: 0;
+      margin-left: $spacing-md;
+      padding-bottom: 0;
+      border-bottom: none;
+      width: auto;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
 }
 
